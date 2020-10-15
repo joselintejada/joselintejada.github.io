@@ -1,0 +1,71 @@
+/* Esta es una pagina de estilos, para agregarle color 
+y diferentes propiedades, simplemte en el documento html, 
+a la etiqueta se le debe agregar una clase */
+.naven{ /* con un punto y el nombre de la clase, abres llaves y empiezas a darle estilo */
+	display: inline-block; /*Los elementos inline-block fluyen con el texto
+	 como si fueran elementos en línea y además respetan el ancho, el alto y los márgenes verticales */
+	background: #0B615E; /*Le agrego color*/
+	background: #0B615E;
+	color: #3B0B17;
+	padding: 20px 30px; /*relleno*/
+	text-decoration: none;  /*texto sin decoracion*/
+
+}
+
+.naven:hover{
+	background: pink; /*Le agrego color*/
+}
+
+.titu{ /*Le doy estilo al titulo con un tipo de letra, lo centro*/
+text-align: center; 
+font-family: Comic Sans MS; 
+font-weight:bold; 
+font-size: 35px; 
+color: #EBD758; 
+text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68,
+ 0 -1px #414D68, -2px 2px 0 #414D68, 2px 2px 0 #414D68, 
+ 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 
+ 4px 4px #414D68, 5px 5px #414D68; 6px 6px #414D68, 
+ 7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68;
+
+}
+
+body { /* En el cuerpo agrego una imagen, lo que seria toda la pantalla 
+	y la hago responsiva*/
+	background-image: url(nezuko.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #66999;
+}
+
+.texto{ /*Le doy estilo a mi tixto dando un tipo de letra y un tamaño*/
+	text-align: left;
+	font-size: 20px;
+	font-family: cursive;
+	color: #3B0B2E
+
+
+}
+
+
+
+.im{ /*Le doy relleno y medidas*/
+	padding:  20px 30px;
+	width: 150px; height: 300px;
+}
+
+h2{/*Cambio el tipo de letra y de doy color*/
+	font-family: Comic Sans MS;
+	color: pink;
+}
+
+.migat{ /*Cambio el tipo de letra, tamaño y centro*/
+	text-align: center; 
+font-family: Comic Sans MS; 
+font-weight:bold; 
+font-size: 35px; 
+color: #FFB6C1; 
+
+}

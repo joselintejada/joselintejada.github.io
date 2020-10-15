@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title >Dibujar figuras</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+
+
+<body>
+	 <p class="titu" href="#">Figuras</p> 
+
+	<div class="canvas" align="center">
+			<canvas id="lienzo" width="1300px" height="400px" 
+			style="border: 1px solid green; background: #FFFFFF">Tu navegador no soporta Canvas</canvas>
+	</div>
+
+	<script type="text/javascript">
+		
+		//funcion para mostrar y quitar los componentes
+	function figura(){
+   		var combo = document.getElementById("figuras");
+		var selected = combo.options[combo.selectedIndex].text;
+
+		if (selected=="Triangulo") {
+
+			document.getElementById('tri').style.display='';
+			document.getElementById('cir').style.display='none';
+			document.getElementById('cua').style.display='none';
+			document.getElementById('colorBoton').style.display='';
+
+		}
+		if (selected=="Circulo") {
+			document.getElementById('tri').style.display='none';
+			document.getElementById('cir').style.display='';
+			document.getElementById('cua').style.display='none';
+			document.getElementById('colorBoton').style.display='';
+		}
+		if (selected=="Cuadrado") {
+			document.getElementById('tri').style.display='none';
+			document.getElementById('cir').style.display='none';
+			document.getElementById('cua').style.display='';
+			document.getElementById('colorBoton').style.display='';
+
+		}		
+
+	}
+	function dibujar(){
+		//Para saber que se selecciono del conboBox
+		var combo = document.getElementById("figuras");
+		var selected = combo.options[combo.selectedIndex].text;
+
+		//Variables que obtienen los valores de las cajas de texto
+		var color=document.getElementById('color').value;
+		var ladoCuad=document.getElementById('ladoCuad').value;
+		var radio=document.getElementById('radio').value;
+		var base=document.getElementById('base').value;
+		var altura=document.getElementById('altura').value;
+
+		//Variables para poder dibujar las figuras en el canvas
+		var lienzo=document.getElementById('lienzo');
+		var c=lienzo.getContext("2d");
+
+		
+           if (selected=="Triangulo") {
+			if (base=="" && altura=="") {
+				alert("Debe de llenar los campos");
+			}else{
+				if (base>=500) {
+
+				c.clearRect(0,0,800,300);
+				c.beginPath();
+				c.fillStyle=color;
+				c.moveTo(200,295)
+				c.lineTo(400,altura);
+				c.lineTo(base,295);
+				c.fill();
+				c.closePath();
+				} else
+				alert("Debe ingresar una base mayor a 500");
+			}
+				
+		}	
+
+
+		if (selected=="Circulo") {
+			if (radio=="") {
+				alert("Debe ingresar el radio del ciculo");
+			}else{
+
+
+				if (radio<=150) {
+					c.clearRect(0,0,800,300);
+					c.beginPath();
+					c.fillStyle=color;
+					c.arc(400,150,radio,0,2*Math.PI);
+					c.fill();
+					c.closePath();
+				}else{
+
+					alert("El valor del radio debe ser menor o igual a 140 ")
+				}	
+			}		
+		}
+		if (selected=="Cuadrado") {
+			if (ladoCuad=="") {
+				alert("Debe de ingresar el lado del cuadrado");
+			}else{
+
+
+				 if (ladoCuad<=290) {
+					c.clearRect(0,0,800,300);
+					c.beginPath();
+					c.fillStyle = color;
+					c.fillRect(250,5,ladoCuad,ladoCuad);
+					c.closePath();
+				}else{
+					alert("El valor del lado debe ser menor o igual a 290 ")
+				}
+			}	
+		}
+	}
+
+	</script>
+
+
+
+<div class="conteiner">
+		<div class="div" id="div">
+			<form name="formOption">
+				Selecciona la figura:<select name="figuras" id="figuras" onchange ="figura();">
+					<option value="1" >Triangulo</option>
+					<option value="2" >Circulo</option>
+					<option value="3" >Cuadrado</option>
+				</select>
+			</form><br>
+		</div>
+
+		<div class="div2">
+				<div  id="tri" style=" ">
+					<label for="">Ingresa las medidas del Triangulo:</label><br>
+					Base: <input type="text" id="base"><br><br>
+					Altura: <input type="text" id="altura"><br>
+				</div>
+
+				<div id="cir" style="display: none;">
+					<label for="">Ingresa el radio del circulo</label><br>
+					Radio: <input type="text" id="radio">
+					
+				</div>
+				<div id="cua" style="display: none;">
+					<label for="">Ingresa el lado del Cuadrado</label><br>
+					Lado: <input type="text" id="ladoCuad">
+
+				</div>
+		</div>
+
+		<div class="div3">
+				<div id="colorBoton" style="">
+					 Color: <input type="color" id="color" value="#FAFD0B">
+					
+				</div>
+		</div>
+
+				<input class="btn" type="button" value="Dibujar" id="dibujar" onclick="dibujar();">
+	</div><br>
+
+</body>
+</html>
